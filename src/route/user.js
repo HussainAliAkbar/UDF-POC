@@ -9,8 +9,9 @@ const router = new Router({
 });
 
 router.get('/', Ctrl.get);
+router.get('/:id', Ctrl.getUserById);
 router.post('/', Ctrl.post);
-router.put('/', Ctrl.put);
+router.put('/:id', Ctrl.put);
 
 const routes = router.routes();
 const allowedMethods = router.allowedMethods({

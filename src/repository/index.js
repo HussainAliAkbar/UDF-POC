@@ -10,3 +10,15 @@ export const getAllUsers = async () => {
     });
 };
 
+export const getUserById = async (id) => {
+  return knex.select().table('users').where({ id }).first();
+};
+
+export const saveUser = async (payload) => {
+  return knex('users').insert(payload);
+};
+
+export const updateUser = async (payload) => {
+  return knex('users').where('id', payload.id).update(payload);
+};
+

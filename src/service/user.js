@@ -1,4 +1,4 @@
-import { getAllUsers } from '../repository';
+import * as userRepo from '../repository';
 
 
 const users = [
@@ -10,7 +10,7 @@ const users = [
 
 export const getUsers = async () => {
   try {
-    const allUsers = await getAllUsers();
+    const allUsers = await userRepo.getAllUsers();
     console.log(allUsers);
     return allUsers;
   } catch (e) {
@@ -19,3 +19,17 @@ export const getUsers = async () => {
 };
 
 export const getFirstUser = () => users[0];
+
+
+export const getUserById = async (userId) => {
+  return userRepo.getUserById(userId);
+};
+
+export const postUser = async (payload) => {
+  return userRepo.saveUser(payload);
+};
+
+
+export const putUser = async (payload) => {
+  return userRepo.updateUser(payload);
+}
