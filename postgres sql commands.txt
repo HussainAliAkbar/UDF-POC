@@ -1,0 +1,69 @@
+
+- Create users table
+
+create table users(
+  id int primary key not null ,
+  name text ,
+  age int
+);
+
+
+- Add a field save the answers of the custom fields in the users table
+
+alter table users add column customFieldAnswers json;
+
+
+- insert dummy data into the users table
+
+insert into users (id, name, age) values (1, 'hussain', 24);
+
+
+
+- create a table entities which will keep a track of all the tables which support user defined fields
+
+create table entities(
+  id int primary key not null ,
+  entityName text not null
+);
+
+- insert the users table entity in the entities table
+
+insert into entities (id, entityName) values (1, 'users');
+
+
+- create table for fieldLookups which will contain the types of custom fields that a admin can add to the table
+
+create table fieldLookups(
+  id int primary key not null ,
+  fieldName text not null
+);
+
+- For the purpose of the POC, we added the following 5 fields
+
+insert into fieldLookups (id, fieldName) values
+  (1, 'text'),
+  (2, 'select'),
+  (3, 'radio'),
+  (4, 'checkbox'),
+  (5, 'textarea');
+
+
+
+- Create a table which will keep track of each custom field added to each entity
+
+create table entityFields(
+  id int primary key not null ,
+  entityId int REFERENCES entities (id),
+  fieldLookupId int REFERENCES fieldLookups (id),
+  length int ,
+  isRequired boolean ,
+  label text ,
+  options text
+);
+
+
+- insert a dummy entry into entityFields
+
+insert into entityFields (id, entityId, fieldLookupId, length, isRequired, label, options)
+    values (1,1,1, 1000, true, 'gender', '');
+
