@@ -1,7 +1,7 @@
 {
-  "name": "koa2-kickstarter",
+  "name": "udf-poc",
   "version": "1.0.0",
-  "description": "An opinionated boilerplate for koa v2 with batteries included",
+  "description": "A POC to demonstrate User defined fileds",
   "main": "src/index.js",
   "scripts": {
     "pretest": "eslint src || true",
@@ -11,7 +11,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
-  "author": "Umayr Shahid <umayrr@hotmail.co.uk>",
+  "author": "Hussain Ali Akbar <hussain94aa@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.18.2",
