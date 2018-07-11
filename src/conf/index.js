@@ -21,6 +21,44 @@ const conf = convict({
     default: 4000,
     env: 'PORT',
   },
+  database: {
+    client: {
+      doc: 'The dialet to use for knex.',
+      format: '*',
+      default: 'pg',
+      env: 'DATABASE_CLIENT',
+    },
+    version: {
+      doc: 'the version of the database',
+      format: '*',
+      default: '10.4',
+      env: 'DATABASE_VERSION',
+    },
+    host: {
+      doc: 'the database host',
+      format: '*',
+      default: '127.0.0.1',
+      env: 'DATABASE_HOST',
+    },
+    user: {
+      doc: 'the database username',
+      format: '*',
+      default: 'user',
+      env: 'DATABASE_USERNAME',
+    },
+    password: {
+      doc: 'the database password',
+      format: '*',
+      default: 'pass',
+      env: 'DATABASE_PASSWORD',
+    },
+    dbName: {
+      doc: 'the database name',
+      format: '*',
+      default: 'database',
+      env: 'DATABASE_NAME',
+    },
+  },
 });
 const d = debug('kickstarter:conf');
 const env = conf.get('env');

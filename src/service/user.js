@@ -1,3 +1,6 @@
+import { getAllUsers } from '../repository';
+
+
 const users = [
   'ava',
   'boyd',
@@ -5,6 +8,14 @@ const users = [
   'winona',
 ];
 
-export const getUsers = () => users;
+export const getUsers = async () => {
+  try {
+    const allUsers = await getAllUsers();
+    console.log(allUsers);
+    return allUsers;
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const getFirstUser = () => users[0];

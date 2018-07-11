@@ -1,7 +1,7 @@
 import { getUsers } from '../service/user';
 
-export const get = (ctx) => {
-  ctx.body = { users: getUsers(), time: Date.now() };
+export const get = async (ctx) => {
+  ctx.body = { users: await getUsers(), time: Date.now() };
 };
 
 export const post = (ctx) => {
