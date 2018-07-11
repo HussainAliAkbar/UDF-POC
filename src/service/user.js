@@ -1,4 +1,4 @@
-import * as userRepo from '../repository';
+import * as userRepo from '../repository/user';
 
 
 const users = [
@@ -9,13 +9,7 @@ const users = [
 ];
 
 export const getUsers = async () => {
-  try {
-    const allUsers = await userRepo.getAllUsers();
-    console.log(allUsers);
-    return allUsers;
-  } catch (e) {
-    console.log(e);
-  }
+    return userRepo.getAllUsers();
 };
 
 export const getFirstUser = () => users[0];
@@ -31,5 +25,6 @@ export const postUser = async (payload) => {
 
 
 export const putUser = async (payload) => {
+  payload.customfieldanswers = JSON.stringify(payload.customfieldanswers);
   return userRepo.updateUser(payload);
-}
+};

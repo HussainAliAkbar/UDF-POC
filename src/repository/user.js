@@ -19,6 +19,7 @@ export const saveUser = async (payload) => {
 };
 
 export const updateUser = async (payload) => {
+  console.log(payload)
   return knex('users').where('id', payload.id).update(payload);
 };
 
