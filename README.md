@@ -15,5 +15,3 @@
 **since this was a POC, we did not have the time to create proper database migrations to setup the database schema.
 However, we have saved the queries in the postgres sql commands.txt file. after running those queries, the basic
 schema of the database would be setup and you can run the POC on it.**
-
-test commit
